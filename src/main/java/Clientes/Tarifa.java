@@ -10,5 +10,7 @@ public class Tarifa {
         this.coste= coste;
     }
 
-
+    public float getCoste() {
+        return coste;
+    }
 }

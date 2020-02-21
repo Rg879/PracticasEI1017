@@ -1,7 +1,9 @@
 package Llamadas;
 
 
+import java.util.Map;
+
 public class gestionLlamadas {
 
-    Map<>
+    Map<String, Llamada>
 }

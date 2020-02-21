@@ -6,10 +6,12 @@ public class Particular extends Cliente {
     private String apellidos;
 
     /*Constructor*/
-    Particular(String nombre, String nif, int codigoPostal, String provincia, String poblacion, String correoElectronico, int dia, int mes, int anyo,float coste,  String apellidos)
-    {
-        super(nombre,nif, codigoPostal, provincia, poblacion, correoElectronico, dia, mes, anyo, coste);
+    Particular(String nombre, String nif, Direccion direccion, String correoElectronico, Fecha fecha, Tarifa tarifa,  String apellidos) {
+        super(nombre,nif, direccion, correoElectronico, fecha, tarifa);
         this.apellidos=apellidos;
     }
 
+    public String getApellidos() {
+        return apellidos;
+    }
 }

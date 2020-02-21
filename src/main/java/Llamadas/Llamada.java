@@ -1,29 +1,34 @@
 package Llamadas;
 
 import Clientes.Fecha;
-import Clientes.Hora;
 
-public class Llamadas {
+import java.sql.Time;
+
+public class Llamada {
 
     //TODO: utilizar un tipo específico de java para la hora.
     private int telefono;
     private Fecha fecha;
-    private Hora hora;
+    private Time horaInicio;
     private long duracionSegundos;
 
-    //TODO: mirar se añadir la tarifa aquí
+    //TODO: mirar se añadir la tarifa aquí ==> NO, va en facturas.
 
-    Llamadas(int telefono, Fecha fecha, Hora hora, long duracionSegundos){
+    Llamada(int telefono, Fecha fecha, Time horaInicio, Time horaFinal){
 
         this.telefono=telefono;
         this.fecha=fecha;
-        this.hora=hora;
-        this.duracionSegundos= duracionSegundos;
+        this.horaInicio=horaInicio;
+        this.duracionSegundos= horaFinal-horaInicio; //TODO: mirar qué hacer (es más lógico que se le pase cuándo empieza y cuando acaba que el tiempo en segundos, pero se puede discutir.
     }
 
     public Fecha getFecha() {
         return fecha;
     }
 
+    public int getTelefono() { return telefono;}
 
+    public Time getHora() { return hora; }
+
+    public long getDuracionSegundos() { return duracionSegundos; }
 }
