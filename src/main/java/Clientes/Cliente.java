@@ -1,5 +1,7 @@
 package Clientes;
 
+import java.util.Calendar;
+
 public abstract class Cliente{
 
     /*Definición de Atributos*/
@@ -7,11 +9,11 @@ public abstract class Cliente{
     private String nif;
     private Direccion direccion;
     private String correoElectronico;
-    private Fecha fechaDeAlta;
+    private Calendar fechaDeAlta;
     private Tarifa tarifa;
 
     /*Constructor*/
-    Cliente(final String nombre, final String nif, final  Direccion direccion, final  String correoElectronico, final  Fecha fecha, final Tarifa tarifa){
+    Cliente(final String nombre, final String nif, final  Direccion direccion, final  String correoElectronico, final  Calendar fecha, final Tarifa tarifa){
         this.nombre=nombre;
         this.nif=nif;
         this.direccion= direccion;
@@ -45,7 +47,7 @@ public abstract class Cliente{
         return nombre;
     }
 
-    public Fecha getFecha() {
+    public Calendar getFecha() {
         return fechaDeAlta;
     }
 

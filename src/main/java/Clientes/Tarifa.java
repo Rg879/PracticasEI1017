@@ -4,7 +4,7 @@ public class Tarifa {
 
     private float coste;
 
-    Tarifa(float coste) throws Exception{ // TODO: poner la excepción donde toque
+    Tarifa( final float coste) throws Exception{ // TODO: poner la excepción donde toque
 
         if(coste<0) throw new Exception("Error: el coste de la tarifa no puede ser negativo.\n");
         this.coste= coste;
