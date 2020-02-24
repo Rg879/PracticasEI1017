@@ -29,7 +29,7 @@ public class Llamada {
 
     public Calendar getHoraInicio() { return horaInicio; }
 
-    public long getDuracionSegundos() { return duracionMiliSegundos/1000; } //TODO: se private o public?
+    private long getDuracionSegundos() { return duracionMiliSegundos/1000; } //TODO: private o public?
 
     public long getDuracionMinutos(){return getDuracionSegundos()/60;}
 }
