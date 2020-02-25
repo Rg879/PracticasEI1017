@@ -1,6 +1,4 @@
-package Gestores;
-
-import Clientes.Cliente;
+package Proyecto.Clientes;
 
 import java.util.Map;
 import java.util.Set;
@@ -13,29 +11,31 @@ public class GestionClientes {
     Map<String, Cliente> mapaClientes;
 
     /*Método para añadir nuevo cliente*/
-    private void nuevoCliente(Cliente nuevoCliente){
+    public void darDeAltaCliente(Cliente nuevoCliente){
         this.mapaClientes.put(nuevoCliente.getNif(), nuevoCliente);
     }
 
     /*Método para borrar nuevo cliente*/
-    private boolean borrarCliente(String nifCliente){
+    public boolean darDeBajaCliente(String nifCliente){
         return this.mapaClientes.remove(nifCliente)!=null;
     }
 
 
     /*Cambiar tarifa*/
-    private boolean cambiarTarifa(String nif, float nuevaTarifa){
+    public boolean cambiarTarifa(String nif, Tarifa nuevaTarifa){
 
         Cliente cliente= this.mapaClientes.get(nif);
         if(cliente == null) return false;
+
+        cliente.tarifa=nuevaTarifa;
 
         return true;
     }
 
     /*Recuperar datos a partir de su nif*/
-    private Cliente recuperarDatos(String nif){
+    public Cliente recuperarDatos(String nif){
         return this.mapaClientes.get(nif);
-    }
+    } //Si no existe el nif, devuelve null
 
     /*devuelve un Set (conjunto) de todos los clientes*/
     private Set<String> listadoClientes(){

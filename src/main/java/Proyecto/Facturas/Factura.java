@@ -1,22 +1,22 @@
-package Facturas;
+package Proyecto.Facturas;
 
-import Clientes.Tarifa;
+import Proyecto.Clientes.Tarifa;
 
 import java.util.Calendar;
 
 public class Factura {
 
     /*Atributos*/
-    long codigoUnico;
-    Tarifa tarifa;
-    Calendar inicioPeriodo;
-    Calendar finPeriodo;
-    Calendar fechaEmision;
-    float importeFactura;
+    private int codigoUnico;
+    private Tarifa tarifa;
+    private Calendar inicioPeriodo;
+    private Calendar finPeriodo;
+    private Calendar fechaEmision;
+    private float importeFactura;
 
 
     /*Constructor*/
-    Factura(final long codigoUnico, final Tarifa tarifa, final Calendar inicioPeriodo, final Calendar finPeriodo, final Calendar fechaEmision, final float importeFactura){
+    Factura(final int codigoUnico, final Tarifa tarifa, final Calendar inicioPeriodo, final Calendar finPeriodo, final Calendar fechaEmision, final float importeFactura){
         this.codigoUnico=codigoUnico;
         this.tarifa=tarifa;
         this.fechaEmision=fechaEmision;
@@ -41,7 +41,7 @@ public class Factura {
         return importeFactura;
     }
 
-    public long getCodigoUnico() {
+    public int getCodigoUnico() {
         return codigoUnico;
     }
 

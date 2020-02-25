@@ -1,6 +1,4 @@
-package Gestores;
-
-import Llamadas.Llamada;
+package Proyecto.Llamadas;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,12 +12,12 @@ public class GestionLlamadas {
     Map<String, List<Llamada> > mapaDeLlamadas;
 
     //Método para tener un listado de todas las llamadas de un cliente.
-    public List<Llamada> listaLlamadasCliente (String nifCliente){
+    public List<Llamada> listarLlamadasCliente (String nifCliente){
         return mapaDeLlamadas.get(nifCliente); //TODO: Ojo, si no hay nada devuelve null !!!
     }
 
     //Método que devuelve TRUE si añade al cliente y FALSE si ya estaba (en cuyo caso, no lo añade)
-    public boolean darDeAltaCliente(String nif){
+    private boolean anyadirCliente(String nif){
 
         if (this.mapaDeLlamadas.get(nif)!=null) return false;
 
@@ -33,13 +31,14 @@ public class GestionLlamadas {
     public boolean darDeAltaLlamada(String nif, Llamada nuevaLlamada){
 
 
-        if (this.mapaDeLlamadas.get(nif)!=null) return false;
+        //Si no está un cliente en la lista, se añade
+        if (this.mapaDeLlamadas.get(nif)!=null) anyadirCliente(nif);
 
         return this.mapaDeLlamadas.get(nif).add(nuevaLlamada);
 
         /*
         //todo: comprobar si lo de arriba funciona; sino:
-        if (this.listaDeLlamadas.get(nif)!=null) return false;
+        if (this.mapaDeLlamadas.get(nif)!=null) anyadirCliente(nif);
         List<Llamada> listaAuxiliar= this.listaDeLlamadas.get(nif);
         listaAuxiliar.add(nuevaLlamada);
         listaDeLlamadas.put(nif, listaAuxiliar);
@@ -47,8 +46,10 @@ public class GestionLlamadas {
         */
     }
 
+
+    /*Por si acaso lo queremos borrar de*/
     //Método que devuelve true si borra el cliente y false no puede borrarlo por cosas como, por ejemplo, si el cliente no está
-    public boolean darDeBajaCliente(String nif){
+    private boolean borrarCliente(String nif){
 
         if (this.mapaDeLlamadas.get(nif)!=null) return false;
 

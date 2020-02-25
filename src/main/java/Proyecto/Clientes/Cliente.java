@@ -1,16 +1,16 @@
-package Clientes;
+package Proyecto.Clientes;
 
 import java.util.Calendar;
 
 public abstract class Cliente{
 
     /*Definición de Atributos*/
-    private String nombre;
-    private String nif;
-    private Direccion direccion;
-    private String correoElectronico;
-    private Calendar fechaDeAlta;
-    private Tarifa tarifa;
+    protected String nombre;
+    protected String nif;
+    protected Direccion direccion;
+    protected String correoElectronico;
+    protected Calendar fechaDeAlta;
+    protected Tarifa tarifa;
 
     /*Constructor*/
     Cliente(final String nombre, final String nif, final  Direccion direccion, final  String correoElectronico, final  Calendar fecha, final Tarifa tarifa){
@@ -23,14 +23,6 @@ public abstract class Cliente{
     }
 
     /*Métodos*/
-    protected void setTarifa(float coste){ //TODO: mirar si los try catch tienen sentido ahí.
-        try{
-            this.tarifa=new Tarifa(coste);
-        }catch (Exception e){
-            int pongoAlgoYaVeré; //hay que ver qué hacer.
-        }
-    }
-
     public String getNif(){
         return this.nif;
     }
@@ -53,5 +45,17 @@ public abstract class Cliente{
 
     public Tarifa getTarifa() {
         return tarifa;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", nif='" + nif + '\'' +
+                ", direccion=" + direccion +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", fechaDeAlta=" + fechaDeAlta +
+                ", tarifa=" + tarifa +
+                '}';
     }
 }
