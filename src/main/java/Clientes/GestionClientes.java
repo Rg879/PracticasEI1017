@@ -5,6 +5,8 @@ import Clientes.Cliente;
 import java.util.Map;
 import java.util.Set;
 
+
+//Clase que se ocupa de gestionar el Mapa de Clientes, la estructura de datos donde relacionamos y almacenamos el NIF con el Objeto Cliente
 public class GestionClientes {
 
     /*Atributos*/
@@ -26,7 +28,7 @@ public class GestionClientes {
 
         Cliente cliente= this.mapaClientes.get(nif);
         if(cliente == null) return false;
-        cliente.setTarifa(nuevaTarifa);
+
         return true;
     }
 
