@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+
+//Clase que se ocupa de gestionar el Mapa de Llamadas, la estructura de datos donde relacionamos y almacenamos el NIF con todas las llamadas que ha hecho.
 public class GestionLlamadas {
 
     //String: NIF cliente; Llamada: a quién llama.

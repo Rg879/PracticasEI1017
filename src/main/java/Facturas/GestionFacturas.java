@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+//Clase que se ocupa de gestionar el Mapa de Factura, la estructura de datos donde relacionamos y almacenamos el NIF con la lista de Facturas del cliente
 public class GestionFacturas {
 
 
