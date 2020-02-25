@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 public class Llamada {
 
-    //TODO: utilizar un tipo específico de java para la hora.
     private int telefono;
     private Calendar fecha;  //TODO: Mirar bien cómo va el tipo Calendar
     private Calendar horaInicio;
