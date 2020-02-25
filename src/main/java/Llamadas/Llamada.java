@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 public class Llamada {
 
-    //TODO: utilizar un tipo específico de java para la hora.
     private int telefono;
     private Calendar fecha;  //TODO: Mirar bien cómo va el tipo Calendar
     private Calendar horaInicio;
@@ -29,7 +28,7 @@ public class Llamada {
 
     public Calendar getHoraInicio() { return horaInicio; }
 
-    public long getDuracionSegundos() { return duracionMiliSegundos/1000; } //TODO: se private o public?
+    private long getDuracionSegundos() { return duracionMiliSegundos/1000; } //TODO: private o public?
 
     public long getDuracionMinutos(){return getDuracionSegundos()/60;}
 }
