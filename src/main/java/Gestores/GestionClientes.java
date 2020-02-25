@@ -1,9 +1,11 @@
-package Clientes;
+package Gestores;
+
+import Clientes.Cliente;
 
 import java.util.Map;
 import java.util.Set;
 
-public class gestionClientes {
+public class GestionClientes {
 
     /*Atributos*/
     Map<String, Cliente> mapaClientes;

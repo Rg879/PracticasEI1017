@@ -1,26 +1,28 @@
-package Llamadas;
+package Gestores;
+
+import Llamadas.Llamada;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class gestionLlamadas {
+public class GestionLlamadas {
 
     //String: NIF cliente; Llamada: a quién llama.
-    Map<String, List<Llamada> > listaDeLlamadas;
+    Map<String, List<Llamada> > mapaDeLlamadas;
 
     //Método para tener un listado de todas las llamadas de un cliente.
     public List<Llamada> listaLlamadasCliente (String nifCliente){
-        return listaDeLlamadas.get(nifCliente); //TODO: Ojo, si no hay nada devuelve null !!!
+        return mapaDeLlamadas.get(nifCliente); //TODO: Ojo, si no hay nada devuelve null !!!
     }
 
     //Método que devuelve TRUE si añade al cliente y FALSE si ya estaba (en cuyo caso, no lo añade)
     public boolean darDeAltaCliente(String nif){
 
-        if (this.listaDeLlamadas.get(nif)!=null) return false;
+        if (this.mapaDeLlamadas.get(nif)!=null) return false;
 
         List<Llamada> listaLlamadasCliente= new LinkedList<>(); //Lista de llamadas vacías, se puede llenar con otro método.
-        this.listaDeLlamadas.put(nif,listaLlamadasCliente);
+        this.mapaDeLlamadas.put(nif,listaLlamadasCliente);
 
         return true;
     }
@@ -29,9 +31,9 @@ public class gestionLlamadas {
     public boolean darDeAltaLlamada(String nif, Llamada nuevaLlamada){
 
 
-        if (this.listaDeLlamadas.get(nif)!=null) return false;
+        if (this.mapaDeLlamadas.get(nif)!=null) return false;
 
-        return this.listaDeLlamadas.get(nif).add(nuevaLlamada);
+        return this.mapaDeLlamadas.get(nif).add(nuevaLlamada);
 
         /*
         //todo: comprobar si lo de arriba funciona; sino:
@@ -46,9 +48,9 @@ public class gestionLlamadas {
     //Método que devuelve true si borra el cliente y false no puede borrarlo por cosas como, por ejemplo, si el cliente no está
     public boolean darDeBajaCliente(String nif){
 
-        if (this.listaDeLlamadas.get(nif)!=null) return false;
+        if (this.mapaDeLlamadas.get(nif)!=null) return false;
 
-        this.listaDeLlamadas.remove(nif);
+        this.mapaDeLlamadas.remove(nif);
 
         return true;
     }
