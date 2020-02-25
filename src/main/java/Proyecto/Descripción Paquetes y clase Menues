@@ -1,0 +1,9 @@
+Clientes: todas las clases relativas a los clientes (tipos de clientes, dirección, etc.)
+Facturas: todas las clases relativas a las facturas
+Llamadas: todas las clases relativas a las llamadas
+
+Gestion{Clientes, Facturas, Llamadas}: estas clases, contenidas en sus correspondientes paquetes, tienen los métodos que sirven para gestionar la estructura de datos correspondiente
+Las 3 clases anteriores serían como una capa intermedia entre el Objeto y el Usuario.
+
+Menues es la clase donde convergen todas las clases de "gestión"; esta clase sería la haría uso el usuario para añadir, borrar, modificar, etc. datos.
+Se llama menues porque, como se puede ver, está llena de menues interactivos (aunque por ahora sin interfaz gráfica) para que el usuario pueda trabajar.
