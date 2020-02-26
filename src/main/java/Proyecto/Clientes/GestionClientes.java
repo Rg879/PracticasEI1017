@@ -1,11 +1,13 @@
 package Proyecto.Clientes;
 
+import Proyecto.Gestion;
+
 import java.util.Map;
 import java.util.Set;
 
 
 //Clase que se ocupa de gestionar el Mapa de Clientes, la estructura de datos donde relacionamos y almacenamos el NIF con el Objeto Cliente
-public class GestionClientes {
+public class GestionClientes implements Gestion {
 
     /*Atributos*/
     Map<String, Cliente> mapaClientes;
@@ -16,8 +18,14 @@ public class GestionClientes {
     }
 
     /*Método para borrar nuevo cliente*/
+    @Override
     public boolean darDeBajaCliente(String nifCliente){
         return this.mapaClientes.remove(nifCliente)!=null;
+    }
+
+    @Override
+    public boolean contieneCliente(String nif) {
+        return this.mapaClientes.containsKey(nif);
     }
 
 

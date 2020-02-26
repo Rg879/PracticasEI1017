@@ -1,31 +1,33 @@
-package Proyecto.Llamadas;
+package Proyecto;
 
-import Proyecto.Gestion;
-import Proyecto.GestionConListas;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+//TODO: objetivo: que Gestión Facturas y gestión Llamadas trabajen bien con esta clase abstracta (porque son básicamente lo mismo).
 
-//Clase que se ocupa de gestionar el Mapa de Llamadas, la estructura de datos donde relacionamos y almacenamos el NIF con todas las llamadas que ha hecho.
-public class GestionLlamadas implements Gestion {
+public abstract class GestionConListas <T> implements Gestion {
 
-    protected Map<String, List<Llamada>> mapaDeGestion;
+    protected Map<String, List<T>> mapaDeGestion;
 
-    public List<Llamada> recuperarDatos (String nif){
+    public List<T> recuperarDatos (String nif){
         return this.mapaDeGestion.get(nif); //TODO: Ojo, si no hay nada devuelve null !!!
     }
 
+
     //Método que, si da de alta la llamada (la añade a la lista de de llamadas del cliente) y si no puede (porque, por ejemplo, no está el cliente) devuelve False
-    public boolean darDeAlta(String nif, Llamada nuevoDato){
+    public boolean darDeAlta(String nif, T nuevoDato){
 
 
         //Si no está un cliente en la lista, se añade
-        if (this.mapaDeGestion.get(nif)!=null) {
-            List<Llamada> listaDatosAIntroducir = new LinkedList<>(); //Lista de llamadas vacías, se puede llenar con otro método.
-            this.mapaDeGestion.put(nif, listaDatosAIntroducir);
+        if (this.mapaDeGestion.get(nif)!=null){
+
+            List<T> listaDatosAIntroducir= new LinkedList<>(); //Lista de llamadas vacías, se puede llenar con otro método.
+            this.mapaDeGestion.put(nif,listaDatosAIntroducir);
+
         }
+
         return this.mapaDeGestion.get(nif).add(nuevoDato);
 
         /*
@@ -45,11 +47,4 @@ public class GestionLlamadas implements Gestion {
         mapaDeGestion.remove(nif);
         return true;
     }
-
-    @Override
-    public boolean contieneCliente(String nif) {
-        return this.mapaDeGestion.containsKey(nif);
-    }
-
-
 }

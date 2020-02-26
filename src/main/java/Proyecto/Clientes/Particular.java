@@ -1,6 +1,6 @@
 package Proyecto.Clientes;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class Particular extends Cliente {
 
@@ -8,7 +8,7 @@ public class Particular extends Cliente {
     private String apellidos;
 
     /*Constructor*/
-    public Particular(final String nombre, final String nif, final Direccion direccion, final String correoElectronico, final Calendar fecha, final Tarifa tarifa, final String apellidos) {
+    public Particular(final String nombre, final String nif, final Direccion direccion, final String correoElectronico, final Date fecha, final Tarifa tarifa, final String apellidos) {
         super(nombre,nif, direccion, correoElectronico, fecha, tarifa);
         this.apellidos=apellidos;
     }
