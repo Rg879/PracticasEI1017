@@ -2,6 +2,7 @@ package Proyecto.Clientes;
 
 import Proyecto.Gestion;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,6 +12,10 @@ public class GestionClientes implements Gestion {
 
     /*Atributos*/
     Map<String, Cliente> mapaClientes;
+
+    public GestionClientes(){
+        this.mapaClientes=new HashMap<>();
+    }
 
     /*Método para añadir nuevo cliente*/
     public void darDeAltaCliente(Cliente nuevoCliente){

@@ -3,10 +3,7 @@ package Proyecto.Facturas;
 import Proyecto.Gestion;
 import Proyecto.GestionConListas;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 //Clase que se ocupa de gestionar el Mapa de Factura, la estructura de datos donde relacionamos y almacenamos el NIF con la lista de Facturas del cliente
 public class GestionFacturas implements Gestion {
@@ -16,6 +13,12 @@ public class GestionFacturas implements Gestion {
     //vector que asocia el código de factura (índice del vector) con el NIF del cliente al cual pertenece la factura.
     //Agiliza la recuperación de datos de factura a partir de su código.
     ArrayList<String> vectorCodigoNif;
+
+    /*Constructor*/
+    public GestionFacturas(){
+        mapaDeGestion=new HashMap<>();
+        vectorCodigoNif= new ArrayList<>();
+    }
 
 
     public List<Factura> recuperarDatos (String nif){
@@ -64,20 +67,25 @@ public class GestionFacturas implements Gestion {
 
 
     //Método que, a partir del código de factura, te recupera la factura en sí (con todos sus datos).
-    public Factura recuperarDatos(int codigo){
+    public Factura recuperarFactura(int codigo){
 
         Factura facturaARecuperar=null;
+        if(this.vectorCodigoNif.size()!=0) {
+            String nif= this.vectorCodigoNif.get(codigo);
+            if (nif != null) { // Si consigue el nif ==> existe la factura ==> listaAuxiliar != null.
+                List<Factura> listaAuxiliar = this.mapaDeGestion.get(nif);
 
-        List<Factura> listaAuxiliar= this.mapaDeGestion.get(this.vectorCodigoNif.get(codigo));
+                //Entre todas las facturas del cliente, se busca la que coincida con el código único
+                for (Factura facturaAuxilair : listaAuxiliar) {
+                    if (facturaAuxilair.getCodigoUnico() == codigo) {
+                        facturaARecuperar = facturaAuxilair;
+                        break;
+                    }
+                }
 
-        //Entre todas las facturas del cliente, se busca la que coincida con el código único
-        for(Factura facturaAuxilair : listaAuxiliar){
-            if(facturaAuxilair.getCodigoUnico()==codigo){
-                facturaARecuperar=facturaAuxilair;
-                break;
             }
         }
-        return  facturaARecuperar; //TODO: Ojo, si no hay nada devuelve null !!!
+        return  facturaARecuperar; //TODO: Ojo, si no existe la factura devuelve null !!!
 
     }
 

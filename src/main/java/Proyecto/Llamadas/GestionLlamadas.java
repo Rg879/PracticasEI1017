@@ -3,6 +3,7 @@ package Proyecto.Llamadas;
 import Proyecto.Gestion;
 import Proyecto.GestionConListas;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,11 @@ import java.util.Map;
 public class GestionLlamadas implements Gestion {
 
     protected Map<String, List<Llamada>> mapaDeGestion;
+
+    /*Constructor*/
+    public GestionLlamadas(){
+        this.mapaDeGestion=new HashMap<>();
+    }
 
     public List<Llamada> recuperarDatos (String nif){
         return this.mapaDeGestion.get(nif); //TODO: Ojo, si no hay nada devuelve null !!!
